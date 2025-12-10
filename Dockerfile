@@ -1,11 +1,11 @@
-FROM --platform=linux/amd64 node:18-slim
+FROM --platform=linux/amd64 oven/bun:1
 
 WORKDIR /usr/src/app
 
 ADD . .
 
-RUN npm ci
+RUN bun install
 
-RUN npm run build
+RUN bun run build
 
-CMD ["node", "dist/main.js"]
+CMD ["bun", "dist/main.js"]
